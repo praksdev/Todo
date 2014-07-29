@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <link href="Styles/Todo.css" rel="stylesheet" type="text/css" />
+	<title>Todo App</title>
+</head>
+<body>
+	<h1 class="lbl">To-do's</h1>
+	<form>
+		<input type = "text" name="item" id = "item" class="todoText" required placeholder="Stuff to be done..." autofocus>
+		<input type="submit" class="todoAdd" value="Add to my list ">
+	</form>
+	<ul id="list">		
+	</ul>
+
+	<div id="footer">
+		<ul id="filters">
+			<li>
+				<a href="#" class="Button">All</a>
+			</li>
+			<li>
+				<a href="#" class="Button">Active</a>
+			</li>
+			<li>
+				<a href="#" class="Button">Completed</a>
+			</li>
+			<li>
+    			<a href="#" class="Button">Sort by latest</a>
+    		</li>
+    		<li>
+    			<a href="#" class="Button">Clear List</a>
+    		</li>
+        </ul>
+        <span id="count" class="count"><span id="remaining"></span> of <span id="length"></span> remaining</span>
+	</div>
+
+	 <!-- template for generating each todo -->
+    <div id="templates" style="display: none;">
+      <li data-name="list">
+        <input type="checkbox" class="toggle">
+        <span></span>
+      </li>
+    </div>
+    <script src="Scripts/model.js"></script>
+    <script src="Scripts/controller.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+        	var calKeys = document.getElementById("filters").querySelectorAll("a.Button");
+            controller.init(calKeys);
+        };
+    </script>
+</body>
+</html>
